@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block title%}
+Profile
+{% endblock %}
+
+{% block body %}
+
+    <div class="dashboard-card">
+        <div class="banner"></div>
+
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="{{ user.profile_picture}}" alt="" class="profile-pic" id="profilePic" >
+                <div class="user-meta">
+                    <h1 id="userName">{{user.producer_name}}</h1>
+                    <p id="userBio">{{ user.bio }}</p>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <label>Email</label>
+                    <p id="userEmail">{{user.email}}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Phone Number</label>
+                    <p id="userLocation">{{user.phone_number}}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Joined</label>
+                    <p id="userJoined">{{user.date_joined}}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Type</label>
+                    <span class="badge">Producer</span>
+                </div>
+            </div>
+
+            <button class="edit-btn" onclick="toggleEdit()">Edit Details</button>
+        </div>
+    </div>
+
+    <script>
+        // script.js
+function toggleEdit() {
+    const name = document.getElementById('userName');
+    const newName = prompt("Enter new name:", name.innerText);
+
+    if (newName) {
+        name.innerText = newName;
+        alert("Profile updated locally!");
+    }
+}
+
+// Logic to simulate loading data
+window.onload = () => {
+    console.log("Dashboard loaded successfully.");
+};
+    </script>
+
+<style>
+    /* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.dashboard-card {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.banner {
+    height: 180px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.profile-container {
+    padding: 0 30px 30px 30px;
+    position: relative;
+}
+
+.profile-header {
+    display: flex;
+    align-items: flex-end;
+    margin-top: -60px; /* This creates the overlap */
+    margin-bottom: 25px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+    background: #eee;
+}
+
+.user-meta {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.user-meta h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.user-meta p {
+    margin: 5px 0 0 0;
+    color: #777;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.detail-item p {
+    margin: 0;
+    font-weight: 600;
+    color: #444;
+}
+
+.badge {
+    background: #e6fffa;
+    color: #38b2ac;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.edit-btn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #667eea;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.edit-btn:hover {
+    background: #5a6fd6;
+}
+</style>
+
+{% endblock %}
