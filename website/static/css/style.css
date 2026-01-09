@@ -1,0 +1,64 @@
+body{
+    background: lavender
+}
+
+section {
+    width: 100%;
+    height: auto;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    margin-top: 10%;
+    margin-right: 5%;
+}
+span{
+    color: orange;
+}
+.hero .content{
+    width: 40%;
+}
+.content a{
+    width: 40px;
+    height: 30px;
+    padding: 10px;
+    background: orange;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+.hero > div > img{
+    width: 300px;
+    height: 300px;
+}
+
+
+
+
+/* for mobile views */
+@media (max-width: 400px) {
+    body{
+        
+    }
+    .hero{
+        margin-top: 15%;
+        flex-wrap: wrap;
+    }
+    .content{
+        width: 100%;
+    }
+    .content h1{
+        font-size: x-large;
+        margin-top: 10px;
+    }
+    .content p{
+        font-size: x-small;
+    }
+    .image img{
+        width: 150px;
+        height: 150px
+    }
+}

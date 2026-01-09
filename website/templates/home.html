@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <section class="hero">
+                <div class="image">
+            <img src="./static/images/image5.png" >
+        </div>
+        <div class="content">
+            <h1>Shopify with<br> <span> Dagi-Express</span> comfortable market</h1>
+            <p>The best online shoping app in ethiopia with free delivery and special discount</p>
+            <a href="">Start shoping</a>
+        </div>
+
+    </section>
+
+{% endblock %}
